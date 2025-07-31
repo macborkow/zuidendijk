@@ -1,1 +1,89 @@
-<h1> Hello world </h1>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Zuidendijk Neighbourhood News</title>
+<link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+<header>
+  <h1>Zuidendijk Neighbourhood News</h1>
+  <p>Community updates from the green heart of Dordrecht’s dike</p>
+</header>
+
+<main id="news-container">
+  <p>Loading news…</p>
+</main>
+
+<script>
+// List your news files here in date-descending order (update manually when adding files)
+const newsFiles = [
+  "2025-07-31-green-initiative.md",
+  "2025-07-25-planting-day.md"
+];
+
+// Simple markdown parser for our limited syntax
+function parseMarkdown(md) {
+  const lines = md.split("\n");
+  const container = document.createElement("div");
+  container.className = "news-post";
+
+  lines.forEach(line => {
+    line = line.trim();
+
+    // Header line (# Header)
+    if(line.startsWith("# ")) {
+      const h = document.createElement("h2");
+      h.textContent = line.substring(2).trim();
+      container.appendChild(h);
+      return;
+    }
+
+    // Image line !(img)[path]
+    const imgMatch = line.match(/^!\(img\)\[(.+)\]$/);
+    if(imgMatch) {
+      const img = document.createElement("img");
+      img.src = imgMatch[1];
+      img.alt = "News image";
+      img.className = "news-image";
+      container.appendChild(img);
+      return;
+    }
+
+    // Normal text paragraph
+    if(line.length > 0) {
+      const p = document.createElement("p");
+      p.textContent = line;
+      container.appendChild(p);
+    }
+  });
+
+  return container;
+}
+
+async function loadNews() {
+  const container = document.getElementById("news-container");
+  container.innerHTML = ""; // clear loading text
+
+  for(const file of newsFiles) {
+    try {
+      const response = await fetch(`news/${file}`);
+      if(!response.ok) throw new Error(`Failed to fetch ${file}`);
+
+      const text = await response.text();
+      const post = parseMarkdown(text);
+      container.appendChild(post);
+    } catch(e) {
+      console.error(e);
+      const errorMsg = document.createElement("p");
+      errorMsg.textContent = `Error loading ${file}`;
+      container.appendChild(errorMsg);
+    }
+  }
+}
+
+loadNews();
+</script>
+</body>
+</html>
