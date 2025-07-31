@@ -29,16 +29,28 @@ if (localStorage.getItem("visitedZuidendijk") === "true") {
   localStorage.setItem("visitedZuidendijk", "true");
 }
 
-// List your news files here in date-descending order (update manually when adding files)
+// List your news files here in date-descending order
 const newsFiles = [
   "2025-07-25-planting-day.md"
 ];
 
-// Simple markdown parser for our limited syntax
-function parseMarkdown(md) {
+// Simple markdown parser with basic support for # headers and images
+function parseMarkdown(md, dateString) {
   const lines = md.split("\n");
   const container = document.createElement("div");
   container.className = "news-post";
+
+  // Add date box
+  const dateBox = document.createElement("div");
+  dateBox.className = "news-date";
+  const dateObj = new Date(dateString);
+  const formattedDate = dateObj.toLocaleDateString("nl-NL", {
+    year: "numeric",
+    month: "long",
+    day: "numeric"
+  });
+  dateBox.textContent = formattedDate;
+  container.appendChild(dateBox);
 
   lines.forEach(line => {
     line = line.trim();
@@ -62,7 +74,7 @@ function parseMarkdown(md) {
       return;
     }
 
-    // Normal text paragraph
+    // Normal paragraph
     if(line.length > 0) {
       const p = document.createElement("p");
       p.textContent = line;
@@ -83,7 +95,8 @@ async function loadNews() {
       if(!response.ok) throw new Error(`Failed to fetch ${file}`);
 
       const text = await response.text();
-      const post = parseMarkdown(text);
+      const datePart = file.split("-").slice(0, 3).join("-"); // YYYY-MM-DD
+      const post = parseMarkdown(text, datePart);
       container.appendChild(post);
     } catch(e) {
       console.error(e);
@@ -96,5 +109,6 @@ async function loadNews() {
 
 loadNews();
 </script>
+
 </body>
 </html>

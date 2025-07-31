@@ -119,3 +119,12 @@ header p {
     pointer-events: none;
   }
 }
+
+.news-date {
+  font-size: 0.9rem;
+  font-weight: bold;
+  color: #4c6e44;
+  margin-bottom: 0.5rem;
+  z-index: 1;
+  position: relative;
+}
