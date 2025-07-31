@@ -98,7 +98,7 @@ header p {
 #splash {
   position: fixed;
   inset: 0;
-  background: black;
+  background: #fffef6;
   z-index: 1000;
   display: flex;
   justify-content: center;
@@ -120,6 +120,7 @@ header p {
   }
 }
 
+/* News date styling */
 .news-date {
   font-size: 0.9rem;
   font-weight: bold;
