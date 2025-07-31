@@ -40,7 +40,11 @@ function parseMarkdown(md, dateString) {
   const container = document.createElement("div");
   container.className = "news-post";
 
-  // Add date box
+  // Title-date row container (flex)
+  const headerRow = document.createElement("div");
+  headerRow.className = "news-header-row";
+
+  // Prepare date
   const dateBox = document.createElement("div");
   dateBox.className = "news-date";
   const dateObj = new Date(dateString);
@@ -50,16 +54,20 @@ function parseMarkdown(md, dateString) {
     day: "numeric"
   });
   dateBox.textContent = formattedDate;
-  container.appendChild(dateBox);
+
+  // Placeholder for title (we’ll fill it later when we find the # header)
+  const titleBox = document.createElement("h2");
+  titleBox.className = "news-title";
+
+  headerRow.appendChild(titleBox);
+  headerRow.appendChild(dateBox);
+  container.appendChild(headerRow);
 
   lines.forEach(line => {
     line = line.trim();
 
-    // Header line (# Header)
     if(line.startsWith("# ")) {
-      const h = document.createElement("h2");
-      h.textContent = line.substring(2).trim();
-      container.appendChild(h);
+      titleBox.textContent = line.substring(2).trim();
       return;
     }
 

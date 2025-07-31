@@ -120,12 +120,24 @@ header p {
   }
 }
 
-/* News date styling */
+.news-header-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  margin-bottom: 0.5rem;
+  gap: 1rem;
+}
+
+.news-title {
+  margin: 0;
+  font-size: 1.3rem;
+  color: #2c5222;
+  flex-grow: 1;
+}
+
 .news-date {
   font-size: 0.9rem;
-  font-weight: bold;
   color: #4c6e44;
-  margin-bottom: 0.5rem;
-  z-index: 1;
-  position: relative;
+  white-space: nowrap;
+  text-align: right;
 }
