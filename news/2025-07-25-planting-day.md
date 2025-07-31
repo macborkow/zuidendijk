@@ -1,7 +1,7 @@
-# Title of news
+# Wat nieuws
 
-Some text paragraph.
+eerste alinea
 
 !(img)[/images/house.png]
 
-Another paragraph.
+tweede alinea
