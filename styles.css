@@ -165,7 +165,7 @@ header p {
   position: fixed;
   top: 0;
   left: -240px;
-  width: 200px;
+  width: 180px;
   height: 100vh;
   background: #f5fdf7;
   border-right: 2px solid #88b04b;
@@ -194,6 +194,7 @@ header p {
 }
 
 #side-menu a:hover {
+  font-size: 1.2rem;
   color: #3b6e41;
 }
 
