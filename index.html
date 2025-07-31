@@ -11,18 +11,21 @@
   <img src="/images/logo.png" alt="Zuidendijk logo">
 </div>
 
-<!-- Side navigation menu -->
-<nav id="side-menu">
-  <ul>
-    <li><a href="/">Nieuws</a></li>
-    <li><a href="/over.html">Over Ons</a></li>
-    <li><a href="/contact.html">Contact</a></li>
-    <li><a href="/donaties.html">Donaties</a></li>
-  </ul>
-</nav>
+<!-- Wrap menu and hamburger in a container -->
+<div id="nav-wrapper" style="display: none;">
+  <!-- Side navigation menu -->
+  <nav id="side-menu">
+    <ul>
+      <li><a href="/">Nieuws</a></li>
+      <li><a href="/over.html">Over Ons</a></li>
+      <li><a href="/contact.html">Contact</a></li>
+      <li><a href="/donaties.html">Donaties</a></li>
+    </ul>
+  </nav>
 
-<!-- Hamburger button -->
-<button id="hamburger" aria-label="Menu">&#9776;</button>
+  <!-- Hamburger button -->
+  <button id="hamburger" aria-label="Menu">&#9776;</button>
+</div>
 
 <header>
   <h1>Stichting Zuidendijk Nieuws</h1>
@@ -127,6 +130,24 @@ async function loadNews() {
       container.appendChild(errorMsg);
     }
   }
+}
+
+// Hamburger menu toggle
+const hamburger = document.getElementById("hamburger");
+const sideMenu = document.getElementById("side-menu");
+
+hamburger.addEventListener("click", () => {
+  hamburger.classList.toggle("open");
+  sideMenu.classList.toggle("open");
+});
+
+// Show nav-wrapper after splash screen ends
+if (localStorage.getItem("visitedZuidendijk") === "true") {
+  document.getElementById("nav-wrapper").style.display = "block";
+} else {
+  setTimeout(() => {
+    document.getElementById("nav-wrapper").style.display = "block";
+  }, 2000); // matches splash fadeOut timing
 }
 
 loadNews();
