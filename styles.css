@@ -163,14 +163,14 @@ header p {
 /* Side menu */
 #side-menu {
   position: fixed;
-  top: 20px;
+  top: 0;
   left: -240px;
   width: 200px;
   height: 100vh;
   background: #f5fdf7;
   border-right: 2px solid #88b04b;
   box-shadow: 4px 0 8px rgba(0,0,0,0.1);
-  padding: 3rem 1rem;
+  padding: 6rem 1rem;
   z-index: 1000;
   transition: left 0.3s ease;
 }
