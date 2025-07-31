@@ -93,3 +93,29 @@ header p {
     max-width: 100%;
   }
 }
+
+/* Splash screen */
+#splash {
+  position: fixed;
+  inset: 0;
+  background: black;
+  z-index: 1000;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  animation: fadeOut 1s ease-in-out 2s forwards;
+}
+
+#splash img {
+  max-width: 60%;
+  height: auto;
+  opacity: 0.9;
+}
+
+@keyframes fadeOut {
+  to {
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+  }
+}

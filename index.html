@@ -7,6 +7,9 @@
 <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
+<div id="splash">
+  <img src="/images/logo.jpg" alt="Zuidendijk logo">
+</div>
 <header>
   <h1>Zuidendijk Neighbourhood News</h1>
   <p>Community updates from the green heart of Dordrecht’s dike</p>
@@ -17,6 +20,15 @@
 </main>
 
 <script>
+// Splash screen logic
+if (localStorage.getItem("visitedZuidendijk") === "true") {
+  const splash = document.createElement("style");
+  splash.textContent = "#splash { display: none !important; }";
+  document.head.appendChild(splash);
+} else {
+  localStorage.setItem("visitedZuidendijk", "true");
+}
+
 // List your news files here in date-descending order (update manually when adding files)
 const newsFiles = [
   "2025-07-31-green-initiative.md",
