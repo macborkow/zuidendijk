@@ -8,7 +8,7 @@
 </head>
 <body>
 <div id="splash">
-  <img src="/images/logo.png" alt="Zuidendijk logo">
+  <img src="./images/logo.png" alt="Zuidendijk logo">
 </div>
 
 <!-- Wrap menu and hamburger in a container -->
@@ -28,8 +28,9 @@
 </div>
 
 <header>
-  <h1>Stichting Zuidendijk Nieuws</h1>
-  <p>Buurtnieuws uit het groene hart van de Dordtse dijk</p>
+  <h2>Leefbaar</h2>
+  <h1>Stichting<span><span>/</span><img src="./images/0.png" alt=" "><span>\</span></span>Zuidendijk</h1>
+  <p>en directe omgeving</p>
 </header>
 
 <main id="news-container">
@@ -93,7 +94,7 @@ function parseMarkdown(md, dateString) {
     const imgMatch = line.match(/^!\(img\)\[(.+)\]$/);
     if(imgMatch) {
       const img = document.createElement("img");
-      img.src = imgMatch[1];
+      img.src = `.${imgMatch[1]}`;
       img.alt = "News image";
       img.className = "news-image";
       container.appendChild(img);
@@ -117,7 +118,7 @@ async function loadNews() {
 
   for(const file of newsFiles) {
     try {
-      const response = await fetch(`news/${file}`);
+      const response = await fetch(`./news/${file}`);
       if(!response.ok) throw new Error(`Failed to fetch ${file}`);
 
       const text = await response.text();
