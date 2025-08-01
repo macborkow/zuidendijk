@@ -15,6 +15,8 @@ body {
 header {
   text-align: center;
   margin-bottom: 2rem;
+  position: relative;
+  left: 1rem;
 }
 
 header h1 {
