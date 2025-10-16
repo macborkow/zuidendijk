@@ -21,8 +21,8 @@ if (localStorage.getItem("visitedZuidendijk") === "true") {
   
 // List jour news files here in date-descending order
 const newsFiles = [
+  "2025-10-16-burendag.md",
   "2025-07-31-website-launch.md",
-  "2025-07-25-planting-day.md"
 ];
 
 // Simple markdown parser with basic support for # headers and images
