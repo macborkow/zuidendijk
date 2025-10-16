@@ -122,3 +122,20 @@ if (localStorage.getItem("visitedZuidendijk") === "true") {
 }
 
 loadNews();
+
+// Add this inside your DOMContentLoaded or after the DOM is ready
+
+document.querySelector('a[href="/#over.html"]').addEventListener('click', function(e) {
+  e.preventDefault();
+  fetch('about.html')
+    .then(response => response.text())
+    .then(html => {
+      document.getElementById('news-container').innerHTML = html;
+    });
+});
+
+// Optional: restore news when "Nieuws" is clicked
+document.querySelector('a[href="/"]').addEventListener('click', function(e) {
+  e.preventDefault();
+  loadNews(); // your existing function
+});
