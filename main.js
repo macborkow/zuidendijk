@@ -3,7 +3,7 @@ localStorage.setItem("visitedZuidendijk", "true");
 // Splash screen logic
 const splash = document.createElement("style");
 const timeNow = new Date().toISOString();
-const lastVisit = localStorage.getItem("lastVisit") || timeNow;
+const lastVisit = localStorage.getItem("lastVisit") || "1970-01-01T00:00:00.000Z";
 if (new Date(timeNow) - new Date(lastVisit) > 30 * 1000) {
   localStorage.setItem("visitedZuidendijk", "false");
 } 
