@@ -127,6 +127,7 @@ loadNews();
 
 document.querySelector('a[href="/#over.html"]').addEventListener('click', function(e) {
   e.preventDefault();
+  localStorage.setItem("lastVisit", new Date().toISOString());
   fetch('about.html')
     .then(response => response.text())
     .then(html => {
@@ -137,5 +138,6 @@ document.querySelector('a[href="/#over.html"]').addEventListener('click', functi
 // Optional: restore news when "Nieuws" is clicked
 document.querySelector('a[href="/"]').addEventListener('click', function(e) {
   e.preventDefault();
+  localStorage.setItem("lastVisit", new Date().toISOString());
   loadNews(); // your existing function
 });
