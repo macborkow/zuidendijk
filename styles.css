@@ -241,3 +241,14 @@ header p {
   left: 0;
 }
 
+/* Hide nav-wrapper by default and make it transparent */
+#nav-wrapper {
+  opacity: 0;
+  transition: opacity 0.6s cubic-bezier(0.4,0,0.2,1);
+  /* Keep display:none in your HTML. JS will switch it to block */
+}
+
+/* Add a class to trigger fade-in */
+#nav-wrapper.visible {
+  opacity: 1;
+}

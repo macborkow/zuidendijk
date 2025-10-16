@@ -103,6 +103,14 @@ async function loadNews() {
   }
 }
 
+function showNavWrapper() {
+  const nav = document.getElementById("nav-wrapper");
+  nav.style.display = "block";
+  // force a reflow so the browser registers the display change before opacity
+  void nav.offsetWidth;
+  nav.classList.add("visible");
+}
+
 // Hamburger menu toggle
 const hamburger = document.getElementById("hamburger");
 const sideMenu = document.getElementById("side-menu");
@@ -114,10 +122,10 @@ hamburger.addEventListener("click", () => {
 
 // Show nav-wrapper after splash screen ends
 if (localStorage.getItem("visitedZuidendijk") === "true") {
-  document.getElementById("nav-wrapper").style.display = "block";
+  showNavWrapper();
 } else {
   setTimeout(() => {
-    document.getElementById("nav-wrapper").style.display = "block";
+    showNavWrapper();
   }, 2500); // matches splash fadeOut timing
 }
 
@@ -135,7 +143,7 @@ document.querySelector('a[href="/#over.html"]').addEventListener('click', functi
     });
 });
 
-// Optional: restore news when "Nieuws" is clicked
+// Restore news when "Nieuws" is clicked
 document.querySelector('a[href="/"]').addEventListener('click', function(e) {
   e.preventDefault();
   localStorage.setItem("lastVisit", new Date().toISOString());
