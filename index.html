@@ -1,159 +1,40 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>Stichting Zuidendijk</title>
-<link rel="stylesheet" href="styles.css" />
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Stichting Zuidendijk</title>
+  <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
-<div id="splash">
-  <img src="./images/logo.png" alt="Zuidendijk logo">
-</div>
+  <div id="splash"></div>
 
-<!-- Wrap menu and hamburger in a container -->
-<div id="nav-wrapper" style="display: none;">
-  <!-- Side navigation menu -->
-  <nav id="side-menu">
-    <ul>
-      <li><a href="/">Nieuws</a></li>
-      <li><a href="/#over.html">Over Ons</a></li>
-      <li><a href="/#contact.html">Contact</a></li>
-      <li><a href="/#archive.html">Archive</a></li>
-    </ul>
-  </nav>
+  <!-- Wrap menu and hamburger in a container -->
+  <div id="nav-wrapper" style="display: none;">
+    <!-- Side navigation menu -->
+    <nav id="side-menu">
+      <ul>
+        <li><a href="/">Nieuws</a></li>
+        <li><a href="/#over.html">Over Ons</a></li>
+        <li><a href="/#contact.html">Contact</a></li>
+        <li><a href="/#archive.html">Archive</a></li>
+      </ul>
+    </nav>
+    <!-- Hamburger button -->
+    <button id="hamburger" aria-label="Menu">&#9776;</button>
+  </div>
 
-  <!-- Hamburger button -->
-  <button id="hamburger" aria-label="Menu">&#9776;</button>
-</div>
+  <header>
+    <h1>Stichting<span><span>/</span><img src="./images/0.png" alt=" "><span>\</span></span>Zuidendijk</h1>
+    <p>en directe omgeving</p>
+  </header>
 
-<header>
-  <h2>Leefbaar</h2>
-  <h1>Stichting<span><span>/</span><img src="./images/0.png" alt=" "><span>\</span></span>Zuidendijk</h1>
-  <p>en directe omgeving</p>
-</header>
+  <main id="content">
+    <div id="news-container">
+      <p>Loading news…</p>
+    </div>
+  </main>
 
-<main id="news-container">
-  <p>Loading news…</p>
-</main>
-
-<script>
-// Splash screen logic
-if (localStorage.getItem("visitedZuidendijk") === "true") {
-  const splash = document.createElement("style");
-  splash.textContent = "#splash { display: none !important; }";
-  document.head.appendChild(splash);
-} else {
-  // localStorage.setItem("visitedZuidendijk", "true");
-}
-
-// List your news files here in date-descending order
-const newsFiles = [
-  "2025-07-31-website-launch.md",
-  "2025-07-25-planting-day.md"
-];
-
-// Simple markdown parser with basic support for # headers and images
-function parseMarkdown(md, dateString) {
-  const lines = md.split("\n");
-  const container = document.createElement("div");
-  container.className = "news-post";
-
-  // Title-date row container (flex)
-  const headerRow = document.createElement("div");
-  headerRow.className = "news-header-row";
-
-  // Prepare date
-  const dateBox = document.createElement("div");
-  dateBox.className = "news-date";
-  const dateObj = new Date(dateString);
-  const formattedDate = dateObj.toLocaleDateString("nl-NL", {
-    year: "numeric",
-    month: "long",
-    day: "numeric"
-  });
-  dateBox.textContent = formattedDate;
-
-  // Placeholder for title (we’ll fill it later when we find the # header)
-  const titleBox = document.createElement("h2");
-  titleBox.className = "news-title";
-
-  headerRow.appendChild(titleBox);
-  headerRow.appendChild(dateBox);
-  container.appendChild(headerRow);
-
-  lines.forEach(line => {
-    line = line.trim();
-
-    if(line.startsWith("# ")) {
-      titleBox.textContent = line.substring(2).trim();
-      return;
-    }
-
-    // Image line !(img)[path]
-    const imgMatch = line.match(/^!\(img\)\[(.+)\]$/);
-    if(imgMatch) {
-      const img = document.createElement("img");
-      img.src = `.${imgMatch[1]}`;
-      img.alt = "News image";
-      img.className = "news-image";
-      container.appendChild(img);
-      return;
-    }
-
-    // Normal paragraph
-    if(line.length > 0) {
-      const p = document.createElement("p");
-      p.textContent = line;
-      container.appendChild(p);
-    }
-  });
-
-  return container;
-}
-
-async function loadNews() {
-  const container = document.getElementById("news-container");
-  container.innerHTML = ""; // clear loading text
-
-  for(const file of newsFiles) {
-    try {
-      const response = await fetch(`./news/${file}`);
-      if(!response.ok) throw new Error(`Failed to fetch ${file}`);
-
-      const text = await response.text();
-      const datePart = file.split("-").slice(0, 3).join("-"); // YYYY-MM-DD
-      const post = parseMarkdown(text, datePart);
-      container.appendChild(post);
-    } catch(e) {
-      console.error(e);
-      const errorMsg = document.createElement("p");
-      errorMsg.textContent = `Error loading ${file}`;
-      container.appendChild(errorMsg);
-    }
-  }
-}
-
-// Hamburger menu toggle
-const hamburger = document.getElementById("hamburger");
-const sideMenu = document.getElementById("side-menu");
-
-hamburger.addEventListener("click", () => {
-  hamburger.classList.toggle("open");
-  sideMenu.classList.toggle("open");
-});
-
-// Show nav-wrapper after splash screen ends
-if (localStorage.getItem("visitedZuidendijk") === "true") {
-  document.getElementById("nav-wrapper").style.display = "block";
-} else {
-  setTimeout(() => {
-    document.getElementById("nav-wrapper").style.display = "block";
-  }, 2500); // matches splash fadeOut timing
-}
-
-loadNews();
-</script>
-
+  <script src="main.js"></script>
 </body>
 </html>
