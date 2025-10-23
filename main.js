@@ -4,7 +4,7 @@ localStorage.setItem("visitedZuidendijk", "true");
 const splash = document.createElement("style");
 const timeNow = new Date().toISOString();
 const lastVisit = localStorage.getItem("lastVisit") || "1970-01-01T00:00:00.000Z";
-if (new Date(timeNow) - new Date(lastVisit) > 30 * 1000) {
+if (new Date(timeNow) - new Date(lastVisit) > 5 * 60 * 1000) {
   localStorage.setItem("visitedZuidendijk", "false");
 } 
 localStorage.setItem("lastVisit", timeNow);
@@ -82,8 +82,10 @@ function parseMarkdown(md, dateString) {
 }
 
 async function loadNews() {
-  const container = document.getElementById("news-container");
-  container.innerHTML = ""; // clear loading text
+  const root = document.getElementById("content");
+  const container = document.createElement("div");
+  container.id = "news-container";
+  root.innerHTML = "Loaden nieuws...";
 
   for (const file of newsFiles) {
     try {
@@ -101,7 +103,19 @@ async function loadNews() {
       container.appendChild(errorMsg);
     }
   }
+  root.innerHTML = "";
+  root.appendChild(container);
 }
+
+
+const hamburger = document.getElementById("hamburger");
+const sideMenu = document.getElementById("side-menu");
+function toggleSideMenu() {
+  // Hamburger menu toggle
+  hamburger.classList.toggle("open");
+  sideMenu.classList.toggle("open");
+}
+  
 
 function showNavWrapper() {
   const nav = document.getElementById("nav-wrapper");
@@ -111,13 +125,9 @@ function showNavWrapper() {
   nav.classList.add("visible");
 }
 
-// Hamburger menu toggle
-const hamburger = document.getElementById("hamburger");
-const sideMenu = document.getElementById("side-menu");
 
 hamburger.addEventListener("click", () => {
-  hamburger.classList.toggle("open");
-  sideMenu.classList.toggle("open");
+  toggleSideMenu();
 });
 
 // Show nav-wrapper after splash screen ends
@@ -133,14 +143,36 @@ loadNews();
 
 // Add this inside your DOMContentLoaded or after the DOM is ready
 
-document.querySelector('a[href="/#over.html"]').addEventListener('click', function(e) {
+document.querySelector('a[href="/over"]').addEventListener('click', function(e) {
   e.preventDefault();
   localStorage.setItem("lastVisit", new Date().toISOString());
   fetch('about.html')
     .then(response => response.text())
     .then(html => {
-      document.getElementById('news-container').innerHTML = html;
+      console.log(html);
+      document.getElementById('content').innerHTML = html;
     });
+  toggleSideMenu();
+});
+document.querySelector('a[href="/contact"]').addEventListener('click', function(e) {
+  e.preventDefault();
+  localStorage.setItem("lastVisit", new Date().toISOString());
+  fetch('contact.html')
+    .then(response => response.text())
+    .then(html => {
+      document.getElementById('content').innerHTML = html;
+    });
+  toggleSideMenu();
+});
+document.querySelector('a[href="/archief"]').addEventListener('click', function(e) {
+  e.preventDefault();
+  localStorage.setItem("lastVisit", new Date().toISOString());
+  fetch('archive.html')
+    .then(response => response.text())
+    .then(html => {
+      document.getElementById('content').innerHTML = html;
+    });
+  toggleSideMenu();
 });
 
 // Restore news when "Nieuws" is clicked
@@ -148,4 +180,27 @@ document.querySelector('a[href="/"]').addEventListener('click', function(e) {
   e.preventDefault();
   localStorage.setItem("lastVisit", new Date().toISOString());
   loadNews(); // your existing function
+  toggleSideMenu();
+});
+
+// Timeline loader function
+async function loadTimeline() {
+  const container = document.getElementById("content");
+  container.innerHTML = '<div id="timeline-embed" style="width: 60vw; height: 60vh"></div>';
+  try {
+    const response = await fetch('timeline-data.json');
+    const data = await response.json();
+    window.timeline = new TL.Timeline('timeline-embed', data);
+  } catch (e) {
+    container.innerHTML = "<p>Fout bij laden van de tijdlijn.</p>";
+    console.error(e);
+  }
+}
+
+// Add handler for Tijdlijn button
+document.querySelector('a[href="/tijdlijn"]').addEventListener('click', function (e) {
+  e.preventDefault();
+  localStorage.setItem("lastVisit", new Date().toISOString());
+  loadTimeline();
+  toggleSideMenu();
 });

@@ -1,0 +1,75 @@
+{
+  "title": {
+    "text": {
+      "headline": "Stichting Zuidendijk - Tijdlijn",
+      "text": "Belangrijke gebeurtenissen en mijlpalen"
+    }
+  },
+  "events": [
+    {
+      "start_date": { "year": "1998" },
+      "text": { "headline": "Actie tegen bouwen op de dijk (spandoek)" }
+    },
+    {
+      "start_date": { "year": "1998" },
+      "text": { "headline": "Oprichting Stichting" }
+    },
+    {
+      "start_date": { "year": "1998" },
+      "text": { "headline": "Pleitnota tegen bouwen op de dijk" }
+    },
+    {
+      "start_date": { "year": "1999" },
+      "text": { "headline": "Convenant Bermbeheer", "text": "Berm hooien, flora en fauna tellen" }
+    },
+    {
+      "start_date": { "year": "1999" },
+      "text": { "headline": "Speeldag buurtfeest" }
+    },
+    {
+      "start_date": { "year": "2001" },
+      "text": { "headline": "Renovatie bruggetje richting Talmaweg" }
+    },
+    {
+      "start_date": { "year": "2003" },
+      "text": { "headline": "Plaatsing naambordje Crabbeheul" }
+    },
+    {
+      "start_date": { "year": "2003" },
+      "text": { "headline": "Officieel bezwaar tegen bouwen op de dijk" }
+    },
+    {
+      "start_date": { "year": "2006" },
+      "text": { "headline": "Sloop oude buurthuis + doortrekken sloot" }
+    },
+    {
+      "start_date": { "year": "2007" },
+      "text": { "headline": "Zuidendijkfeest" }
+    },
+    {
+      "start_date": { "year": "2012" },
+      "text": { "headline": "Verven van de noodlokalen Montessorischool" }
+    },
+    {
+      "start_date": { "year": "2016" },
+      "text": { "headline": "Fotowedstrijd op de dijk" }
+    },
+    {
+      "start_date": { "year": "2016" },
+      "text": { "headline": "Sloop Montessorischool" }
+    },
+    {
+      "start_date": { "year": "2017" },
+      "text": { "headline": "Monumentenstatus Crabbeheul" }
+    },
+    {
+      "start_date": { "year": "2021" },
+      "text": { "headline": "Plaatsing vogelhuisjes en vleermuiskasten" }
+    },
+    {
+      "start_date": { "year": "2020" },
+      "end_date": { "year": "2024" },
+      "text": { "headline": "Bezwaar bouwproject Karel Doormanweg" }
+    }
+  ]
+}
