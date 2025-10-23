@@ -14,7 +14,7 @@ if (localStorage.getItem("visitedZuidendijk") === "true") {
   document.head.appendChild(splash);
 } else {
   const splashImg = document.createElement("img");
-  splashImg.src = "./images/logo.png";
+  splashImg.src = "./images/logo2.png";
   splashImg.alt = "Zuidendijk logo";
   document.getElementById("splash").appendChild(splashImg);
 }
@@ -149,7 +149,6 @@ document.querySelector('a[href="/over"]').addEventListener('click', function(e) 
   fetch('about.html')
     .then(response => response.text())
     .then(html => {
-      console.log(html);
       document.getElementById('content').innerHTML = html;
     });
   toggleSideMenu();
@@ -186,7 +185,7 @@ document.querySelector('a[href="/"]').addEventListener('click', function(e) {
 // Timeline loader function
 async function loadTimeline() {
   const container = document.getElementById("content");
-  container.innerHTML = '<div id="timeline-embed" style="width: 60vw; height: 60vh"></div>';
+  container.innerHTML = '<div id="timeline-embed" style="width: 90vw; height: 60vh"></div>';
   try {
     const response = await fetch('timeline-data.json');
     const data = await response.json();
