@@ -14,7 +14,7 @@ if (localStorage.getItem("visitedZuidendijk") === "true") {
   document.head.appendChild(splash);
 } else {
   const splashImg = document.createElement("img");
-  splashImg.src = "./images/logo2.png";
+  splashImg.src = "./images/logo.png";
   splashImg.alt = "Zuidendijk logo";
   document.getElementById("splash").appendChild(splashImg);
 }
@@ -139,11 +139,9 @@ if (localStorage.getItem("visitedZuidendijk") === "true") {
   }, 2500); // matches splash fadeOut timing
 }
 
-loadNews();
-
 // Add this inside your DOMContentLoaded or after the DOM is ready
 
-document.querySelector('a[href="/over"]').addEventListener('click', function(e) {
+document.querySelector('a[href="#over"]').addEventListener('click', function(e) {
   e.preventDefault();
   localStorage.setItem("lastVisit", new Date().toISOString());
   fetch('about.html')
@@ -152,8 +150,9 @@ document.querySelector('a[href="/over"]').addEventListener('click', function(e) 
       document.getElementById('content').innerHTML = html;
     });
   toggleSideMenu();
+  window.location.hash = '#over';
 });
-document.querySelector('a[href="/contact"]').addEventListener('click', function(e) {
+document.querySelector('a[href="#contact"]').addEventListener('click', function(e) {
   e.preventDefault();
   localStorage.setItem("lastVisit", new Date().toISOString());
   fetch('contact.html')
@@ -162,8 +161,9 @@ document.querySelector('a[href="/contact"]').addEventListener('click', function(
       document.getElementById('content').innerHTML = html;
     });
   toggleSideMenu();
+  window.location.hash = '#contact';
 });
-document.querySelector('a[href="/archief"]').addEventListener('click', function(e) {
+document.querySelector('a[href="#archief"]').addEventListener('click', function(e) {
   e.preventDefault();
   localStorage.setItem("lastVisit", new Date().toISOString());
   fetch('archive.html')
@@ -172,6 +172,7 @@ document.querySelector('a[href="/archief"]').addEventListener('click', function(
       document.getElementById('content').innerHTML = html;
     });
   toggleSideMenu();
+  window.location.hash = '#archief';
 });
 
 // Restore news when "Nieuws" is clicked
@@ -180,6 +181,7 @@ document.querySelector('a[href="/"]').addEventListener('click', function(e) {
   localStorage.setItem("lastVisit", new Date().toISOString());
   loadNews(); // your existing function
   toggleSideMenu();
+  window.location.hash = '';
 });
 
 // Timeline loader function
@@ -197,9 +199,52 @@ async function loadTimeline() {
 }
 
 // Add handler for Tijdlijn button
-document.querySelector('a[href="/tijdlijn"]').addEventListener('click', function (e) {
+document.querySelector('a[href="#tijdlijn"]').addEventListener('click', function (e) {
   e.preventDefault();
   localStorage.setItem("lastVisit", new Date().toISOString());
   loadTimeline();
   toggleSideMenu();
+  // set the right hash
+  window.location.hash = '#tijdlijn';
+});
+
+const target = document.querySelector('#nav-wrapper');
+
+document.addEventListener('click', (event) => {
+  const withinBoundaries = event.composedPath().includes(target)
+
+  if (!withinBoundaries) {
+    if (sideMenu.classList.contains("open")) {
+      toggleSideMenu();
+    }
+  }
+})
+
+// go to the right section based on URL hash
+window.addEventListener('load', () => {
+  const hash = window.location.hash;
+  console.log("Current hash:", hash);
+  if (hash === '#over') {
+    fetch('about.html')
+      .then(response => response.text())
+      .then(html => {
+	document.getElementById('content').innerHTML = html;
+      });
+  } else if (hash === '#contact') {
+    fetch('contact.html')
+      .then(response => response.text())
+      .then(html => {
+	document.getElementById('content').innerHTML = html;
+      });
+  } else if (hash === '#archief') {
+    fetch('archive.html')
+      .then(response => response.text())
+      .then(html => {
+	document.getElementById('content').innerHTML = html;
+      });
+  } else if (hash === '#tijdlijn') {
+    loadTimeline();
+  } else {
+    loadNews();
+  }
 });
