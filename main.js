@@ -14,7 +14,7 @@ if (localStorage.getItem("visitedZuidendijk") === "true") {
   document.head.appendChild(splash);
 } else {
   const splashImg = document.createElement("img");
-  splashImg.src = "./images/logo.png";
+  splashImg.src = "./images/logo3.png";
   splashImg.alt = "Zuidendijk logo";
   document.getElementById("splash").appendChild(splashImg);
 }
