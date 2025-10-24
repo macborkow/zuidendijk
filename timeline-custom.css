@@ -8,6 +8,14 @@
   border-radius: 1vh;
 }
 
+@media (max-width: 768px) {
+  #timeline-embed {
+    bottom: 2vh;
+    left: 2vw;
+    width: 96vw !important;
+  }
+}
+
 .tl-slider-background {
   background: #f0f8f4 !important;
 }
