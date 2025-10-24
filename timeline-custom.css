@@ -8,17 +8,19 @@
   border-radius: 1vh;
 }
 
+@media (max-width: 400px) {
+  #timeline-embed {
+    top: 30vh;
+    height: 68vh !important;
+    bottom: auto;
+  }
+}
+
 @media (max-width: 768px) {
   #timeline-embed {
     bottom: 2vh;
     left: 2vw;
     width: 96vw !important;
-  }
-}
-
-@media (max-width: 350px) {
-  #timeline-embed {
-    height: 65vh !important;
   }
 }
 
