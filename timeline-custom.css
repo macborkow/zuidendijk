@@ -8,22 +8,6 @@
   border-radius: 1vh;
 }
 
-@media (max-width: 400px) {
-  #timeline-embed {
-    top: 30vh;
-    height: 68vh !important;
-    bottom: auto;
-  }
-}
-
-@media (max-width: 768px) {
-  #timeline-embed {
-    bottom: 2vh;
-    left: 2vw;
-    width: 96vw !important;
-  }
-}
-
 .tl-slider-background {
   background: #f0f8f4 !important;
 }
@@ -84,5 +68,30 @@
   z-index: 100;
 }
 
+@media (max-width: 400px) {
+  #timeline-embed {
+    top: 30vh;
+    height: 68vh !important;
+    bottom: auto;
+  }
+}
+
+@media (min-aspect-ratio: 10/5) {
+  #timeline-embed {
+    top: 30vh;
+    height: 68vh !important;
+  }
+  .tl-timenav {
+    transform: scale(1.0);
+  }
+}
+
+@media (max-width: 768px) {
+  #timeline-embed {
+    bottom: 2vh;
+    left: 2vw;
+    width: 96vw !important;
+  }
+}
 
 /* Prevent any font overrides from breaking layout */
