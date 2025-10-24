@@ -187,11 +187,15 @@ document.querySelector('a[href="/"]').addEventListener('click', function(e) {
 // Timeline loader function
 async function loadTimeline() {
   const container = document.getElementById("content");
-  container.innerHTML = '<div id="timeline-embed" style="width: 60vw; height: 30vh"></div>';
+  container.innerHTML = '<div id="timeline-embed"></div>';
   try {
     const response = await fetch('timeline-data.json');
     const data = await response.json();
-    window.timeline = new TL.Timeline('timeline-embed', data);
+    window.timeline = new TL.Timeline('timeline-embed', data, {
+      scale_factor: 6,
+      timenav_position: 'bottom',
+      timenav_height_percentage: 25,
+    });
   } catch (e) {
     container.innerHTML = "<p>Fout bij laden van de tijdlijn.</p>";
     console.error(e);

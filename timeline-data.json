@@ -28,7 +28,10 @@
     },
     {
       "start_date": { "year": "2001" },
-      "text": { "headline": "Renovatie bruggetje richting Talmaweg" }
+      "text": { "headline": "Renovatie bruggetje richting Talmaweg" },
+      "background": {
+	"url": "images/crabbeheul.jpg"
+      }
     },
     {
       "start_date": { "year": "2003" },

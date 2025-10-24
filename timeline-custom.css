@@ -1,15 +1,11 @@
 /* --- TimelineJS Color Customization for Zuidendijk --- */
-
 #timeline-embed {
   position: absolute;
-  transform: scale(1.5);
-  transform-origin: bottom left;
   bottom: 5vh;
   left: 5vw;
-}
-
-.tl-timenav {
-  transform: scale(1);
+  width: 90vw !important;
+  height: 80vh !important;
+  border-radius: 1vh;
 }
 
 .tl-slider-background {
@@ -17,7 +13,7 @@
 }
 
 .tl-attribution {
-  display: none !important;
+  opacity: 0.2 !important;
 }
 
 /* Main timeline background */
@@ -28,7 +24,7 @@
 /* Event (slide) background */
 .tl-slide-content-container,
 .tl-slide-background {
-  background: #f0f8f4 !important;
+  opacity: 0.9 !important;
 }
 
 /* Date bar and navigation */
@@ -64,9 +60,13 @@
   background: #3b6e41 !important;
 }
 
-/* Content box border accent */
-.tl-text-content {
-  border-left: 8px solid #88b04b !important;
+.tl-timenav {
+  transform: scale(1.25);
+  transform-origin: bottom left; /* or 'center' for different effect */
+  /* Prevent overflow cropping at the bottom */
+  margin-bottom: 50px;
+  z-index: 1001;
 }
+
 
 /* Prevent any font overrides from breaking layout */
