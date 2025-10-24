@@ -389,17 +389,3 @@ header p {
   background: #f5fdf7;
   box-shadow: 0 2px 8px rgb(136 176 75 / 0.08);
 }
-@media (max-width: 700px) {
-  #archive-container {
-    flex-direction: column;
-    gap: 1rem;
-  }
-  #pdf-list {
-    width: 100%;
-    min-width: 0;
-  }
-  #pdf-viewer {
-    min-width: 0;
-    min-height: 400px;
-  }
-}

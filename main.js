@@ -170,10 +170,10 @@ document.querySelector('a[href="#archief"]').addEventListener('click', function(
     .then(response => response.text())
     .then(html => {
       document.getElementById('content').innerHTML = html;
+      renderPdfList();
     });
   toggleSideMenu();
   window.location.hash = '#archief';
-  renderPdfList();
 });
 
 // Restore news when "Nieuws" is clicked
@@ -246,8 +246,8 @@ window.addEventListener('load', () => {
       .then(response => response.text())
       .then(html => {
 	document.getElementById('content').innerHTML = html;
+        renderPdfList();
       });
-    renderPdfList();
   } else if (hash === '#tijdlijn') {
     loadTimeline();
   } else {
@@ -277,10 +277,9 @@ function renderPdfList() {
         </li>`
       ).join('')
     + '</ul>';
-  console.log('PDF list rendered.');
 }
 function showPdf(filename, el) {
-  PDFObject.embed(`archive_pdfs/${filename}`, "#pdf-viewer", { height: "600px" });
+  PDFObject.embed(`archive_pdfs/${filename}`, "#pdf-viewer", { height: "100%" });
   // Highlight selected
   Array.from(document.querySelectorAll('#pdf-list a')).forEach(a => {
     a.style.background = '';
