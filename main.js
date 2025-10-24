@@ -187,7 +187,7 @@ document.querySelector('a[href="/"]').addEventListener('click', function(e) {
 // Timeline loader function
 async function loadTimeline() {
   const container = document.getElementById("content");
-  container.innerHTML = '<div id="timeline-embed" style="width: 90vw; height: 60vh"></div>';
+  container.innerHTML = '<div id="timeline-embed" style="width: 60vw; height: 30vh"></div>';
   try {
     const response = await fetch('timeline-data.json');
     const data = await response.json();

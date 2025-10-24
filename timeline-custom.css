@@ -1,0 +1,72 @@
+/* --- TimelineJS Color Customization for Zuidendijk --- */
+
+#timeline-embed {
+  position: absolute;
+  transform: scale(1.5);
+  transform-origin: bottom left;
+  bottom: 5vh;
+  left: 5vw;
+}
+
+.tl-timenav {
+  transform: scale(1);
+}
+
+.tl-slider-background {
+  background: #f0f8f4 !important;
+}
+
+.tl-attribution {
+  display: none !important;
+}
+
+/* Main timeline background */
+.timeline {
+  background: #f0f8f4 !important;
+}
+
+/* Event (slide) background */
+.tl-slide-content-container,
+.tl-slide-background {
+  background: #f0f8f4 !important;
+}
+
+/* Date bar and navigation */
+.tl-menubar {
+  background: #88b04b !important; /* Zuidendijk green */
+}
+
+/* Date text and title accents */
+.tl-date,
+.tl-time {
+  color: #4c6e44 !important;
+}
+.tl-slide-title,
+.tl-headline {
+  color: #2c5222 !important;
+}
+
+/* Navigation arrows */
+.tl-slidenav-next,
+.tl-slidenav-previous {
+  background: transparent !important;
+  color: #fff !important;
+}
+*/
+
+/* Timeline progress bar */
+/*.tl-timenav-slider-background {
+  background: #88b04b !important;
+}
+
+/* Timeline progress marker */
+.tl-timenav-marker {
+  background: #3b6e41 !important;
+}
+
+/* Content box border accent */
+.tl-text-content {
+  border-left: 8px solid #88b04b !important;
+}
+
+/* Prevent any font overrides from breaking layout */
