@@ -16,6 +16,12 @@
   }
 }
 
+@media (max-width: 350px) {
+  #timeline-embed {
+    height: 65vh !important;
+  }
+}
+
 .tl-slider-background {
   background: #f0f8f4 !important;
 }
