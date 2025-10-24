@@ -16,7 +16,6 @@ header {
   text-align: center;
   margin-bottom: 2rem;
   position: relative;
-  left: 1rem;
 }
 
 header h1 {
@@ -268,6 +267,10 @@ header p {
   gap: 2rem;
 }
 
+.about-flex article {
+  text-align: justify;
+}
+
 .about-flex .about-image img {
   width: 40vw;
   max-width: 600px;
@@ -325,9 +328,10 @@ header p {
     max-width: 100%;
   }
 }
-@media (max-width: 400px) {
+@media (max-width: 370px) {
   #logo {
-    display: none;
+    position: relative;
+    top: -3.5rem;
   }
 }
 
