@@ -173,6 +173,7 @@ document.querySelector('a[href="#archief"]').addEventListener('click', function(
     });
   toggleSideMenu();
   window.location.hash = '#archief';
+  renderPdfList();
 });
 
 // Restore news when "Nieuws" is clicked
@@ -246,9 +247,45 @@ window.addEventListener('load', () => {
       .then(html => {
 	document.getElementById('content').innerHTML = html;
       });
+    renderPdfList();
   } else if (hash === '#tijdlijn') {
     loadTimeline();
   } else {
     loadNews();
   }
 });
+
+const pdfFiles = [
+	{ name: "Zuidendijk Stichting Nieuwsbrief 78 03-02-2024.pdf", label: "Nieuwsbrief 03 Februari 2024" },
+	{ name: "Zuidendijk Stichting Nieuwsbrief 79 29-02-2024.pdf", label: "Nieuwsbrief 29 Februari 2024" },
+	{ name: "Zuidendijk Stichting Nieuwsbrief 80 05-04-2024.pdf", label: "Nieuwsbrief 05 April 2024" },
+	{ name: "Zuidendijk Stichting Nieuwsbrief 81 12-07-2024.pdf", label: "Nieuwsbrief 12 Juli 2024" },
+	{ name: "Zuidendijk Stichting Nieuwsbrief 82 23-12-2024.pdf", label: "Nieuwsbrief 23 December 2024" },
+	{ name: "Zuidendijk Stichting Nieuwsbrief 83 08-01-2024.pdf", label: "Nieuwsbrief 08 Januari 2025" },
+	{ name: "Zuidendijk Stichting Nieuwsbrief 84 juni 2025.pdf", label: "Nieuwsbrief Juni 2025" },
+	{ name: "Zuidendijk Stichting Nieuwsbrief 85 oktober 2025.pdf", label: "Nieuwsbrief Oktober 2025" }
+];
+
+function renderPdfList() {
+  const listDiv = document.getElementById('pdf-list');
+  console.log(listDiv);
+  listDiv.innerHTML = '<h3 style="color:#3b6e41;">Mails aan bewoners</h3><ul style="list-style:none; padding:0;">'
+    + pdfFiles.map(file =>
+        `<li style="margin-bottom:14px;">
+          <a href="#" style="color:#2a3a2b; font-weight:500; text-decoration:none; border-left:4px solid #88b04b; padding-left:0.5em; display:block;"
+             onclick="showPdf('${file.name}', this);return false;">${file.label}</a>
+        </li>`
+      ).join('')
+    + '</ul>';
+  console.log('PDF list rendered.');
+}
+function showPdf(filename, el) {
+  PDFObject.embed(`archive_pdfs/${filename}`, "#pdf-viewer", { height: "600px" });
+  // Highlight selected
+  Array.from(document.querySelectorAll('#pdf-list a')).forEach(a => {
+    a.style.background = '';
+    a.style.color = '#2a3a2b';
+  });
+  el.style.background = '#e4f4e8';
+  el.style.color = '#3b6e41';
+}
