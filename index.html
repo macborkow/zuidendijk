@@ -44,6 +44,20 @@
   <main id="content">
   </main>
 
+  <div id="visits">Loading...</div>
+
+	<script>
+	  fetch("https://visit-counter.zuidendijk.workers.dev")
+	    .then(res => res.json())
+	    .then(data => {
+	      document.getElementById("visits").innerText = 
+		`Bezoeken: ${data.visits}`;
+	    })
+	    .catch(() => {
+	      document.getElementById("visits").innerText = "Bezoeken: error";
+	    });
+	</script>
+
   <script src="main.js"></script>
 </body>
 </html>

@@ -389,3 +389,11 @@ header p {
   background: #f5fdf7;
   box-shadow: 0 2px 8px rgb(136 176 75 / 0.08);
 }
+
+#visits {
+  position: fixed;
+  bottom: 1rem;
+  right: 1rem;
+  font-size: 0.9rem;
+  color: #4c6e44;
+}
