@@ -64,7 +64,7 @@
   transform: scale(1.25);
   transform-origin: bottom left; /* or 'center' for different effect */
   /* Prevent overflow cropping at the bottom */
-  margin-bottom: 50px;
+  //margin-bottom: 50px;
   z-index: 100;
 }
 
@@ -88,6 +88,9 @@
 }
 
 @media (max-width: 768px) {
+  .tl-timenav {
+    transform: scale(1.0);
+  }
   #timeline-embed {
     bottom: 2vh;
     left: 2vw;

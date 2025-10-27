@@ -194,7 +194,7 @@ async function loadTimeline() {
     const response = await fetch('timeline-data.json');
     const data = await response.json();
     window.timeline = new TL.Timeline('timeline-embed', data, {
-      scale_factor: 2,
+      scale_factor: 3,
       timenav_position: 'bottom',
       timenav_height_percentage: 18,
     });
