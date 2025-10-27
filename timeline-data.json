@@ -8,7 +8,12 @@
   "events": [
     {
       "start_date": { "year": "1998" },
-      "text": { "headline": "Actie tegen bouwen op de dijk (spandoek)" }
+      "text": { "headline": "Bouwen Zuidendijk NEE", "text": "In 1995/1996 mochten bewoners van Dordrecht meedenken over waar er gebouwd zou moeten worden. De gemeente noemde dit: Dordt Spreekt. In het verslag van Dordt Spreekt was te zien, dat er geen extra bebouwing bij zou komen op ons stukje Zuidendijk. In 1998 werd er een voorontwerp gemaakt voor een nieuw bestemmingsplan. Ineens stonden er 10 huizen (vijf keer 2 aan 2) ingetekend op het oost-talud van de dijk. Direct kwamen de bewoners van de Zuidendijk hiertegen in verweer. Om er serieus werk van te maken, werd de Stichting Zuidendijk opgericht. Met vereende krachten en een lange adem werd dit bestemmingsplan door ons aangevochten. In het definitieve bestemmingsplan van 2003 waren de huizen grotendeels verdwenen, en werd met name de locatie van de meubelhal (onderaan het bruggetje) als toekomstige bouwlocatie aangewezen. Een groot succes dankzij de inzet van veel bewoners van de dijk en de Stichting."
+      },
+      "media": {
+        "url": "images/zuidendijk_nee.jpg",
+	"caption": "Spandoek actie"
+      }
     },
     {
       "start_date": { "year": "1998" },
@@ -20,7 +25,11 @@
     },
     {
       "start_date": { "year": "1999" },
-      "text": { "headline": "Convenant Bermbeheer", "text": "Berm hooien, flora en fauna tellen" }
+      "text": { "headline": "Convenant Bermbeheer", "text": "Berm hooien, flora en fauna tellen" },
+      "media": {
+        "url": "images/hooien.jpg",
+	"caption": "Berm hooien op de Zuidendijk"
+      }
     },
     {
       "start_date": { "year": "1999" },
