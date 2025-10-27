@@ -3,8 +3,8 @@
   position: absolute;
   bottom: 5vh;
   left: 5vw;
-  width: 90vw !important;
-  height: 75vh !important;
+  width: 90vw;
+  height: 75vh;
   border-radius: 1vh;
 }
 
@@ -64,7 +64,7 @@
   transform: scale(1.25);
   transform-origin: bottom left; /* or 'center' for different effect */
   /* Prevent overflow cropping at the bottom */
-  //margin-bottom: 50px;
+  margin-bottom: 50px;
   z-index: 100;
 }
 
@@ -76,26 +76,28 @@
   }
 }
 
-@media (min-aspect-ratio: 10/5) {
-  #timeline-embed {
-    top: 30vh;
-    height: 68vh !important;
-  }
-  .tl-timenav {
-    transform: scale(1.0);
-    margin-bottom: 10px;
-  }
-}
-
-@media (max-width: 768px) {
-  .tl-timenav {
-    transform: scale(1.0);
-  }
+@media (max-width: 700px) {
   #timeline-embed {
     bottom: 2vh;
     left: 2vw;
     width: 96vw !important;
   }
 }
+
+@media (max-width: 1400px) {
+  .tl-timenav {
+    transform: scale(1.0);
+  }
+}
+
+  @media (min-aspect-ratio: 10/5) {
+    #timeline-embed {
+      top: 30vh;
+      height: 68vh !important;
+    }
+    .tl-timenav {
+      transform: scale(1.0);
+    }
+  }
 
 /* Prevent any font overrides from breaking layout */

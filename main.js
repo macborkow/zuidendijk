@@ -196,7 +196,7 @@ async function loadTimeline() {
     window.timeline = new TL.Timeline('timeline-embed', data, {
       scale_factor: 3,
       timenav_position: 'bottom',
-      timenav_height_percentage: 18,
+      timenav_height_percentage: 16,
     });
   } catch (e) {
     container.innerHTML = "<p>Fout bij laden van de tijdlijn.</p>";

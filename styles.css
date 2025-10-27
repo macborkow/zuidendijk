@@ -295,6 +295,32 @@ header p {
   font-size: 1rem;
   font-weight: bold;
 }
+#archive-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2rem;
+  min-height: 600px;
+}
+#pdf-list {
+  width: 240px;
+  min-width: 180px;
+}
+#pdf-viewer {
+  flex: 1;
+  min-width: 320px;
+  min-height: 600px;
+  border-radius: 8px;
+  background: #f5fdf7;
+  box-shadow: 0 2px 8px rgb(136 176 75 / 0.08);
+}
+
+#visits {
+  position: fixed;
+  bottom: 1rem;
+  right: 1rem;
+  font-size: 0.9rem;
+  color: #4c6e44;
+}
 
 /* Stack image above text on small devices */
 @media (max-width: 1400px) {
@@ -359,6 +385,13 @@ header p {
   #news-container {
     max-width: 100%;
   }
+  #visits {
+    opacity: 0.4;
+    font-size: 0.8rem;
+  }
+  #visits:hover {
+    opacity: 1;
+  }
 }
 @media (max-width: 400px) {
   #logo {
@@ -371,29 +404,3 @@ header p {
   }
 }
 
-#archive-container {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 2rem;
-  min-height: 600px;
-}
-#pdf-list {
-  width: 240px;
-  min-width: 180px;
-}
-#pdf-viewer {
-  flex: 1;
-  min-width: 320px;
-  min-height: 600px;
-  border-radius: 8px;
-  background: #f5fdf7;
-  box-shadow: 0 2px 8px rgb(136 176 75 / 0.08);
-}
-
-#visits {
-  position: fixed;
-  bottom: 1rem;
-  right: 1rem;
-  font-size: 0.9rem;
-  color: #4c6e44;
-}
