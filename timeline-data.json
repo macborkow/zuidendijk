@@ -67,7 +67,10 @@
     },
     {
       "start_date": { "year": "2021" },
-      "text": { "headline": "Plaatsing vogelhuisjes en vleermuiskasten" }
+      "text": { "headline": "Plaatsing vogelhuisjes en vleermuiskasten" },
+      "background": {
+	"url": "images/birdhouse.jpg"
+      }
     },
     {
       "start_date": { "year": "2020" },
