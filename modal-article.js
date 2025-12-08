@@ -42,7 +42,7 @@ function showModalArticle(filename, triggerEl = null) {
   fetch(filename)
     .then(resp => resp.text())
     .then(html => {
-      contentDiv.innerHTML = html + `<button class="modal-article-close-btm">Close</button>`;
+      contentDiv.innerHTML = html + `<button class="modal-article-close-btm">Sluit</button>`;
       // Init carousels if carousel.js is loaded
       if (typeof initCarousels === 'function') {
         initCarousels(contentDiv);
