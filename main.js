@@ -21,12 +21,14 @@ if (localStorage.getItem("visitedZuidendijk") === "true") {
   
 // List jour news files here in date-descending order
 const newsFiles = [
+  "2025-10-25-burendag.md",
   "2025-10-24-burendag.md",
   "2025-10-16-burendag.md",
   "2025-07-31-website-launch.md",
 ];
 
 // Simple markdown parser with basic support for # headers and images
+// Simple markdown parser with # headers, images, and links + modal support
 function parseMarkdown(md, dateString) {
   const lines = md.split("\n");
   const container = document.createElement("div");
@@ -69,6 +71,36 @@ function parseMarkdown(md, dateString) {
       img.alt = "News image";
       img.className = "news-image";
       container.appendChild(img);
+      return;
+    }
+    // Markdown link: [label](url)
+    const linkMatch = line.match(/^\[([^\]]+)\]\(([^)]+)\)$/);
+    if (linkMatch) {
+      const label = linkMatch[1];
+      const url = linkMatch[2];
+      if (url.endsWith('.html')) {
+        // Modal article link
+        const a = document.createElement('a');
+        a.href = "#";
+        a.setAttribute('data-article', url);
+        a.textContent = label;
+        a.onclick = e => {
+          e.preventDefault();
+          showModalArticle(url, a);
+        };
+        const p = document.createElement('p');
+        p.appendChild(a);
+        container.appendChild(p);
+      } else {
+        // Normal link
+        const a = document.createElement('a');
+        a.href = url;
+        a.textContent = label;
+        a.target = "_blank";
+        const p = document.createElement('p');
+        p.appendChild(a);
+        container.appendChild(p);
+      }
       return;
     }
     // Normal paragraph
@@ -160,6 +192,7 @@ document.querySelector('a[href="#contact"]').addEventListener('click', function(
     .then(response => response.text())
     .then(html => {
       document.getElementById('content').innerHTML = html;
+      wireModalArticleTriggers();
     });
   toggleSideMenu();
   window.location.hash = '#contact';

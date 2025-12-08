@@ -1,0 +1,75 @@
+/* modalArticle.css: Modal dialog that expands out from trigger element's position */
+
+.modal-article-overlay {
+  position: fixed;
+  left: 0; top: 0;
+  width: 100vw; height: 100vh;
+  background: rgba(32,32,32,0.5);
+  z-index: 9999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.modal-article-dialog {
+  background: #fff;
+  border-radius: 14px;
+  box-shadow: 0 8px 32px rgba(0,0,0,0.25);
+  width: 90vw;
+  max-height: 90vh;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  overflow: hidden;
+  opacity: 0;
+  transform: scale(0);
+  /* Will be animated by JS, not CSS keyframes */
+  transition:
+    transform 640ms cubic-bezier(.36,.07,.19,.97),
+    opacity 180ms cubic-bezier(.36,.07,.19,.97);
+  /* transform-origin will be set inline from JS */
+}
+
+.modal-article-dialog.visible {
+  opacity: 1;
+  transform: scale(1);
+}
+
+.modal-article-close-x {
+  position: absolute;
+  top: 14px;
+  right: 18px;
+  font-size: 1.5rem;
+  background: rgba(255,255,255,0.5);
+  border: none;
+  cursor: pointer;
+  z-index: 2;
+  line-height: 1;
+  border-radius: 50%;
+  width: 36px;
+  height: 36px;
+  transition: background 0.2s;
+}
+.modal-article-close-x:hover {
+  background: #eee;
+}
+
+.modal-article-content {
+  padding: 32px 24px 24px 24px;
+  overflow-y: auto;
+}
+
+.modal-article-close-btm {
+  margin: 22px auto 8px auto;
+  display: block;
+  padding: 10px 28px;
+  font-size: 1rem;
+  border-radius: 10px;
+  background: #ececec;
+  border: none;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+.modal-article-close-btm:hover {
+  background: #ddd;
+}
