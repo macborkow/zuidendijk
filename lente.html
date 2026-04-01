@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lente</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: #f3f3f3;
+            margin: 0;
+            padding: 40px 20px;
+            color: #222;
+        }
+
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        h1 {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+
+        .section {
+            display: flex;
+            align-items: center;
+            margin-bottom: 60px;
+            gap: 40px;
+        }
+
+        .section.reverse {
+            flex-direction: row-reverse;
+        }
+
+        .text {
+            flex: 1;
+            font-size: 18px;
+            line-height: 1.6;
+        }
+
+        .image {
+            flex: 1;
+        }
+
+        .image img {
+            width: 100%;
+            border-radius: 6px;
+            display: block;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .section {
+                flex-direction: column;
+            }
+            .section.reverse {
+                flex-direction: column;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+
+    <h1>De winter maakt plaats voor de lente!</h1>
+
+    <!-- Section 1 (image right) -->
+    <div class="section">
+        <div class="text">
+            <p>
+                Langzaam maar zeker nemen we afscheid van de winter. De dagen worden langer,
+                de zon laat zich steeds vaker zien en hier en daar verschijnen de eerste
+                tekenen de lente! Waar we de afgelopen maanden vooral naar binnen trokken,
+                voelen we nu weer de behoefte om naar buiten te gaan en elkaar op te zoeken.
+            </p>
+        </div>
+        <div class="image">
+            <img src="/images/lente/1.jpg" alt="Lente afbeelding 1">
+        </div>
+    </div>
+
+    <!-- Section 2 (image left) -->
+    <div class="section reverse">
+        <div class="text">
+            <p>
+                Op onze dijk betekent dit een frisse start met de bomen die weer knoppen
+                krijgen en de vogels, eenden en ganzen laten zich uitbundig horen. Het is
+                een periode waarin alles lijkt te ontwaken en dat geldt ook voor ons als
+                bewoners, want de lente is bij uitstek het seizoen om elkaar weer te
+                ontmoeten. Misschien tijdens een wandeling door de buurt, een praatje op
+                straat of een kop koffie in de zon. Kleine momenten die bijdragen aan een
+                fijne en verbonden leefomgeving.
+            </p>
+        </div>
+        <div class="image">
+            <img src="/images/lente/2.jpg" alt="Lente afbeelding 2">
+        </div>
+    </div>
+
+    <!-- Section 3 (image right) -->
+    <div class="section">
+        <div class="text">
+            <p>
+                We laten de winter achter ons en kijken met nieuwe energie vooruit: op naar
+                een zonnige, groene en gezellige lente!
+            </p>
+        </div>
+        <div class="image">
+            <img src="/images/lente/3.jpg" alt="Lente afbeelding 3">
+        </div>
+    </div>
+
+</div>
+
+</body>
+</html>
