@@ -21,6 +21,7 @@ if (localStorage.getItem("visitedZuidendijk") === "true") {
   
 // List jour news files here in date-descending order
 const newsFiles = [
+  "2026-06-12-kleur.md",
   "2026-05-20-snoeien.md",
   "2026-04-10-baronie.md",
   "2026-03-19-lente.md",

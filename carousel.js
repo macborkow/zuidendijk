@@ -23,6 +23,8 @@ function initCarousels(scope = document) {
     }
     container.innerHTML = '';
     container.classList.add('carousel-container');
+    const isVertical = container.getAttribute('vertical') === 'true';
+    if (isVertical) container.classList.add('carousel-vertical');
 
     // Controls
     const carousel = document.createElement('div');
