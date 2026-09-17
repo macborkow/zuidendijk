@@ -304,7 +304,10 @@ const pdfFiles = [
 	{ name: "Zuidendijk Stichting Nieuwsbrief 82 23-12-2024.pdf", label: "Nieuwsbrief 23 December 2024" },
 	{ name: "Zuidendijk Stichting Nieuwsbrief 83 08-01-2024.pdf", label: "Nieuwsbrief 08 Januari 2025" },
 	{ name: "Zuidendijk Stichting Nieuwsbrief 84 juni 2025.pdf", label: "Nieuwsbrief Juni 2025" },
-	{ name: "Zuidendijk Stichting Nieuwsbrief 85 oktober 2025.pdf", label: "Nieuwsbrief Oktober 2025" }
+	{ name: "Zuidendijk Stichting Nieuwsbrief 85 oktober 2025.pdf", label: "Nieuwsbrief Oktober 2025" },
+	{ name: "Zuidendijk Stichting Nieuwsbrief 86.pdf", label: "Nieuwsbrief 21 Oktober 2026" },
+	{ name: "Zuidendijk Stichting Nieuwsbrief 87.pdf", label: "Nieuwsbrief 10 April 2026" },
+	{ name: "Zuidendijk Stichting Nieuwsbrief 88.pdf", label: "Nieuwsbrief 31 Augustus 2026" }
 ];
 
 function renderPdfList() {
